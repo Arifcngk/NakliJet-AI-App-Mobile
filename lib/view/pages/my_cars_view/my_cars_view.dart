@@ -19,7 +19,7 @@ class _MyCarsViewScreenState extends State<MyCarsViewScreen> {
           title: const Text(
             "Araçlarım",
             style: TextStyle(
-              fontWeight: FontWeight.w300,
+              fontWeight: FontWeight.bold,
             ),
           ),
           backgroundColor: Colors.white,

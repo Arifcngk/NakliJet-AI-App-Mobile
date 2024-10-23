@@ -17,7 +17,7 @@ class PostFlowViewScreen extends StatelessWidget {
               title: const Text(
                 "Seferler",
                 style: TextStyle(
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
               backgroundColor: Colors.white,

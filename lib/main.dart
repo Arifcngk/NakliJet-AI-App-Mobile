@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:naklijet_demo/app/theme.dart';
-import 'package:naklijet_demo/view/app_view.dart';
+import 'package:naklijet_demo/view/auth/auth_profile_info.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Naklijet Demo',
         theme: ThemeApp.lightTheme,
-        home: const AppViewScreen(),
+        home: const AuthProfileInfo(),
       ),
     );
   }

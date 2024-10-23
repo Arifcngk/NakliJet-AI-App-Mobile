@@ -19,7 +19,7 @@ class _JobsViewScreenState extends State<JobsViewScreen> {
           title: const Text(
             "Mevcut İşlerim",
             style: TextStyle(
-              fontWeight: FontWeight.w300,
+              fontWeight: FontWeight.bold,
             ),
           ),
           backgroundColor: Colors.white,

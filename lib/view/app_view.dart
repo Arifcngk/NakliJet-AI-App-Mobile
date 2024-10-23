@@ -7,7 +7,7 @@ import 'package:naklijet_demo/view/pages/profile_view/profile_view.dart';
 import 'package:unicons/unicons.dart';
 
 class AppViewScreen extends StatefulWidget {
-  const AppViewScreen({Key? key}) : super(key: key);
+  const AppViewScreen({super.key});
 
   @override
   _AppViewScreenState createState() => _AppViewScreenState();
