@@ -1,38 +1,49 @@
 import 'package:flutter/material.dart';
 
-class MyCarsViewScreen extends StatelessWidget {
-  final String appBarTitle;
-  const MyCarsViewScreen({super.key, required this.appBarTitle});
+class MyCarsViewScreen extends StatefulWidget {
+  const MyCarsViewScreen({super.key});
 
   @override
+  State<MyCarsViewScreen> createState() => _MyCarsViewScreenState();
+}
+
+class _MyCarsViewScreenState extends State<MyCarsViewScreen> {
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFEEEDEB),
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60), // AppBar'ın yüksekliği
-        child: Column(
+    return DefaultTabController(
+      length: 2, // Number of tabs
+      child: Scaffold(
+        backgroundColor: const Color(0xFFEEEDEB),
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+            "Araçlarım",
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          bottom: TabBar(
+            tabs: const [
+              Tab(text: 'Araçlarım'),
+              Tab(text: 'Dorselerim'),
+            ],
+            indicatorColor: Theme.of(context)
+                .colorScheme
+                .primary, // Customize indicator color
+            labelColor: Theme.of(context)
+                .colorScheme
+                .primary, // Color of the selected tab text
+            unselectedLabelColor: Colors.grey, // Color of unselected tab text
+          ),
+        ),
+        body: const TabBarView(
           children: [
-            AppBar(
-              centerTitle: true,
-              title: Text(
-                appBarTitle,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w300,
-                ),
-              ),
-              backgroundColor: Colors.white,
-              elevation: 0, // Gölgeyi kaldırıyoruz
-            ),
-            // AppBar'ın altındaki çizgi
-            Container(
-              height: 0.2, // Çizgi kalınlığı
-              color: Colors.grey, // Çizgi rengi
-            ),
+            Center(child: Text("Aracınız  Bulunmamaktadır")),
+            Center(child: Text("Dorseniz  Bulunmamaktadır")),
           ],
         ),
-      ),
-      body: Center(
-        child: Text("Profile View"),
       ),
     );
   }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ProfileViewScreen extends StatelessWidget {
-  final String appBarTitle;
-  const ProfileViewScreen({super.key, required this.appBarTitle});
+  const ProfileViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +13,9 @@ class ProfileViewScreen extends StatelessWidget {
           children: [
             AppBar(
               centerTitle: true,
-              title: Text(
-                appBarTitle,
-                style:const TextStyle(
+              title: const Text(
+                "Profilim",
+                style: TextStyle(
                   fontWeight: FontWeight.w300,
                 ),
               ),

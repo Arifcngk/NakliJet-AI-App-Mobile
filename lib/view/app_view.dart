@@ -19,18 +19,10 @@ class _AppViewScreenState extends State<AppViewScreen> {
   // Sayfalar listesi
   final List<Widget> _pages = [
     const HomeViewScreen(),
-    const JobsViewScreen(
-      appBarTitle: "İşlerim",
-    ),
-    const PostFlowViewScreen(
-      appBarTitle: "İş Akışı",
-    ), // Ortadaki sayfa
-    const MyCarsViewScreen(
-      appBarTitle: "Araçlarım",
-    ),
-    const ProfileViewScreen(
-      appBarTitle: "Profilim",
-    ),
+    const JobsViewScreen(),
+    const PostFlowViewScreen(), // Ortadaki sayfa
+    const MyCarsViewScreen(),
+    const ProfileViewScreen(),
   ];
 
   @override

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:naklijet_demo/widget/custom_card.dart';
 
 class PostFlowViewScreen extends StatelessWidget {
-  final String appBarTitle;
-  const PostFlowViewScreen({super.key, required this.appBarTitle});
+  const PostFlowViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +14,9 @@ class PostFlowViewScreen extends StatelessWidget {
           children: [
             AppBar(
               centerTitle: true,
-              title: Text(
-                appBarTitle,
-                style: const TextStyle(
+              title: const Text(
+                "Seferler",
+                style: TextStyle(
                   fontWeight: FontWeight.w300,
                 ),
               ),
@@ -31,8 +31,19 @@ class PostFlowViewScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(
-        child: Text("Profile View"),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return const Column(
+              children: [
+                CustomCard(),
+                SizedBox(height: 6),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
