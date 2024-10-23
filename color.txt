@@ -1,0 +1,4 @@
+primary = #082255
+scafold = #fafafa
+btn = #0085fe
+input = #f1f1f1
