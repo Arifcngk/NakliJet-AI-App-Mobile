@@ -130,8 +130,7 @@ class HomeViewScreen extends StatelessWidget {
                           return const Column(
                             children: [
                               CustomCard(), // Her bir kart
-                               SizedBox(
-                                  height: 10), // Kartlar arasında boşluk
+                              SizedBox(height: 10), // Kartlar arasında boşluk
                             ],
                           );
                         },

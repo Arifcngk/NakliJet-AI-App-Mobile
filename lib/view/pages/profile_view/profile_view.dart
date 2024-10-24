@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naklijet_demo/widget/circle_avatar_widget.dart';
 import 'package:unicons/unicons.dart';
 
 class ProfileViewScreen extends StatelessWidget {
@@ -164,22 +165,17 @@ class InfoProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          CircleAvatar(
-            backgroundColor: Colors.blue.shade300,
+          CircleAvatarWidget(
+            icon:  UniconsLine.user_circle,
             radius: 30,
-            child: Icon(
-              UniconsLine.user_circle,
-              size: 28,
-              color: Colors.white.withOpacity(0.8),
-            ),
           ),
-          const SizedBox(width: 15),
-          const Expanded(
+          SizedBox(width: 15),
+          Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -194,7 +190,7 @@ class InfoProfile extends StatelessWidget {
               ],
             ),
           ),
-          const CircleAvatar(
+          CircleAvatar(
             backgroundColor: Colors.white,
             radius: 20,
             child: Icon(
@@ -208,3 +204,4 @@ class InfoProfile extends StatelessWidget {
     );
   }
 }
+

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:naklijet_demo/view/app_view.dart';
+import 'package:naklijet_demo/view/auth/auth_profile_info.dart';
+import 'package:naklijet_demo/widget/custom_btn_widget.dart';
 
 class LoginViewSceen extends StatelessWidget {
   const LoginViewSceen({super.key});
@@ -37,7 +38,14 @@ class LoginViewSceen extends StatelessWidget {
             const SizedBox(height: 20),
             phoneInputButton(context),
             const SizedBox(height: 20),
-            _phoneButtonMethod(context),
+            customBtnWidget(onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AuthProfileInfo(),
+                ),
+              );
+            },),
             const SizedBox(height: 30),
             RichText(
               textAlign: TextAlign.center,
@@ -108,35 +116,5 @@ class LoginViewSceen extends StatelessWidget {
       ),
     );
   }
-
-  SizedBox _phoneButtonMethod(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      height: 60,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Theme.of(context).colorScheme.primary,
-          side: BorderSide(
-            color: Theme.of(context).colorScheme.primary,
-            width: 1,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-        onPressed: () {
-          // Buton tıklama olayı
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const AppViewScreen(),
-          ));
-        },
-        child: const Text(
-          "Devam Edin",
-          style: TextStyle(
-            color: Colors.white, // Yazı rengi beyaz
-          ),
-        ),
-      ),
-    );
-  }
 }
+
