@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
 class customBtnWidget extends StatelessWidget {
-   customBtnWidget({
+  final Function()? onPressed;
+
+  const customBtnWidget({
     super.key,
     required this.onPressed,
   });
-  Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

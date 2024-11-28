@@ -3,6 +3,7 @@ import 'package:naklijet_demo/app/theme.dart';
 import 'package:naklijet_demo/core/utils/shared_preferences_helper.dart';
 import 'package:naklijet_demo/providers/advertisement_info_provider.dart';
 import 'package:naklijet_demo/providers/phone_auth_provider.dart';
+import 'package:naklijet_demo/providers/vehicle_provider.dart';
 import 'package:naklijet_demo/view/app_view.dart';
 import 'package:naklijet_demo/view/auth/login_view.dart';
 import 'package:provider/provider.dart';
@@ -10,9 +11,15 @@ import 'package:provider/provider.dart';
 void main() {
   runApp(MultiProvider(
     providers: [
+      // telefon ile giriş provider
       ChangeNotifierProvider(create: (context) => PhoneAuthProvider()),
+      // ilanları yöneten provider
       ChangeNotifierProvider(
           create: (context) => AdvertisementInformationProvider()),
+      // araç ekle provider
+      ChangeNotifierProvider(
+        create: (context) => VehicleProvider(),
+      )
     ],
     child: const MyApp(),
   ));
