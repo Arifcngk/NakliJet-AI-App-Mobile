@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:naklijet_demo/providers/advertisement_info_provider.dart';
+import 'package:naklijet_demo/view/pages/jobs_view/jobs_details.dart';
 import 'package:naklijet_demo/widget/custom_card.dart';
+import 'package:provider/provider.dart';
 
 class PostFlowViewScreen extends StatelessWidget {
   const PostFlowViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final advertisements =
+        Provider.of<AdvertisementInformationProvider>(context).advertisements;
     return Scaffold(
       backgroundColor: const Color(0xFFEEEDEB),
       appBar: PreferredSize(
@@ -34,11 +39,27 @@ class PostFlowViewScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: ListView.builder(
-          itemCount: 10,
+          itemCount: advertisements.length,
           itemBuilder: (context, index) {
-            return const Column(
+            final ad = advertisements[index];
+            return Column(
               children: [
-                CustomCard(),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => JobsDetailsScreen(),
+                        ));
+                  },
+                  child: CustomCard(
+                    advertDate: ad.advertDate,
+                    advertPrice: ad.advertPrice,
+                    finishPlace: ad.finishPlace,
+                    id: ad.id,
+                    startPlace: ad.startPlace,
+                  ),
+                ),
                 SizedBox(height: 6),
               ],
             );

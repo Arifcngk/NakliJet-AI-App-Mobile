@@ -38,7 +38,8 @@ dependencies:
   fluentui_system_icons: ^1.1.260
   intl_phone_field: ^3.2.0
   unicons: ^3.0.0
-  sliding_up_panel: ^2.0.0+1
+  wolt_modal_sheet: ^0.9.3
+  provider: ^6.1.2
 
 dev_dependencies:
   flutter_test:

@@ -61,8 +61,54 @@ class JobsDetailsScreen extends StatelessWidget {
                           const SizedBox(height: 20),
                           _jobs_info_rounded_Card(context),
                           const SizedBox(height: 20),
-                          ContactCardWidget(),
-                          const SizedBox(height: 50)
+                          const ContactCardWidget(),
+                          const SizedBox(height: 20),
+                          Card(
+                            color: Colors.white,
+                            elevation: 6,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            child: SizedBox(
+                              width: double.infinity,
+                              height: MediaQuery.of(context).size.height * 0.09,
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 10),
+                                child: Row(
+                                  children: [
+                                    Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "Sefer Fiyatı :",
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w300,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 10),
+                                        const Text("₺₺₺₺₺₺₺ +KDV",
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black,
+                                            )),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    _offerButton(context),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     )
@@ -72,6 +118,27 @@ class JobsDetailsScreen extends StatelessWidget {
             ),
           )
         ],
+      ),
+    );
+  }
+
+  ElevatedButton _offerButton(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(5),
+        ),
+      ),
+      onPressed: () {
+        // Butona basıldığında yapılacak işlem
+      },
+      child: const Text(
+        "Teklif Ver",
+        style: TextStyle(
+          fontSize: 16,
+          color: Colors.white,
+        ),
       ),
     );
   }

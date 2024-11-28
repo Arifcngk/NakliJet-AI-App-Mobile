@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:naklijet_demo/view/pages/profile_view/setting/profile_settings_view.dart';
 import 'package:naklijet_demo/widget/circle_avatar_widget.dart';
 import 'package:unicons/unicons.dart';
 
@@ -165,17 +166,17 @@ class InfoProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 5),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          CircleAvatarWidget(
-            icon:  UniconsLine.user_circle,
+          const CircleAvatarWidget(
+            icon: UniconsLine.user_circle,
             radius: 30,
           ),
-          SizedBox(width: 15),
-          Expanded(
+          const SizedBox(width: 15),
+          const Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -190,13 +191,24 @@ class InfoProfile extends StatelessWidget {
               ],
             ),
           ),
-          CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 20,
-            child: Icon(
-              UniconsLine.edit,
-              size: 18,
-              color: Colors.black,
+          InkWell(
+            onTap: () {
+              // Profil düzenleme sayfasına yönlendirme yapılacak
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ProfileSettingsView(),
+                ),
+              );
+            },
+            child: const CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 20,
+              child: Icon(
+                UniconsLine.edit,
+                size: 18,
+                color: Colors.black,
+              ),
             ),
           ),
         ],
@@ -204,4 +216,3 @@ class InfoProfile extends StatelessWidget {
     );
   }
 }
-

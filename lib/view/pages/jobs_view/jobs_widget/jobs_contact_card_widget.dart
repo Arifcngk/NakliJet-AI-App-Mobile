@@ -12,7 +12,7 @@ class ContactCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: Colors.blue.shade100,
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height * 0.08,
         child: const Padding(

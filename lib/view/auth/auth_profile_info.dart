@@ -35,7 +35,7 @@ class AuthProfileInfo extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 const Text(
-                  "Naklijet Uygulamasını Kullanabilmek İçin\nBilgilerinizi Tamamlamanız Gerekmektedir.",
+                  "NakliAI Uygulamasını Kullanabilmek İçin\nBilgilerinizi Tamamlamanız Gerekmektedir.",
                   textAlign: TextAlign.center, // Texti ortalamak için
                   style: TextStyle(color: Colors.grey, fontSize: 16),
                 ),

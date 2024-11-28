@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:naklijet_demo/view/pages/my_cars_view/pages/my_cars.dart';
+import 'package:naklijet_demo/view/pages/my_cars_view/pages/my_trailers.dart';
 
 class MyCarsViewScreen extends StatefulWidget {
   const MyCarsViewScreen({super.key});
@@ -40,8 +42,8 @@ class _MyCarsViewScreenState extends State<MyCarsViewScreen> {
         ),
         body: const TabBarView(
           children: [
-            Center(child: Text("Aracınız  Bulunmamaktadır")),
-            Center(child: Text("Dorseniz  Bulunmamaktadır")),
+            MyCarsPage(),
+            MyTrailersPage(),
           ],
         ),
       ),

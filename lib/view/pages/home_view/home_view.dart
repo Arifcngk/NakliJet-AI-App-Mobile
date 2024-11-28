@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:naklijet_demo/providers/advertisement_info_provider.dart';
+import 'package:naklijet_demo/view/pages/home_view/custom_widget/info_documant_widget.dart';
 import 'package:naklijet_demo/widget/custom_card.dart';
+import 'package:provider/provider.dart';
 import 'package:unicons/unicons.dart';
 
 class HomeViewScreen extends StatelessWidget {
@@ -7,6 +10,8 @@ class HomeViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final advertisements =
+        Provider.of<AdvertisementInformationProvider>(context).advertisements;
     return Scaffold(
       body: Stack(
         children: [
@@ -24,38 +29,7 @@ class HomeViewScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 40),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Colors.white,
-                              radius: 25,
-                              child: Icon(
-                                UniconsLine.user_circle,
-                                size: 30,
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'Günaydın, User',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                              ),
-                            ),
-                          ],
-                        ),
-                        IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              UniconsLine.bell,
-                              color: Colors.white,
-                              size: 30,
-                            )),
-                      ],
-                    ),
+                    _helloUserText(),
                     const SizedBox(height: 30),
                     const Text(
                       "Belge Kontrolü",
@@ -81,6 +55,7 @@ class HomeViewScreen extends StatelessWidget {
                           borderRadius:
                               BorderRadius.circular(5), // Kenarları yuvarlat
                         ),
+                        child: const infoDocumant(),
                       ),
                     ),
                   ],
@@ -125,12 +100,20 @@ class HomeViewScreen extends StatelessWidget {
                             20), // "Önerilenler" başlığı ile kartlar arasında boşluk
                     Expanded(
                       child: ListView.builder(
-                        itemCount: 6, // 6 kart oluştur
+                        itemCount: advertisements.length, // 6 kart oluştur
                         itemBuilder: (context, index) {
-                          return const Column(
+                          final ad = advertisements[index];
+                          return Column(
                             children: [
-                              CustomCard(), // Her bir kart
-                              SizedBox(height: 10), // Kartlar arasında boşluk
+                              CustomCard(
+                                advertDate: ad.advertDate,
+                                advertPrice: ad.advertPrice,
+                                finishPlace: ad.finishPlace,
+                                id: ad.id,
+                                startPlace: ad.startPlace,
+                              ), // Her bir kart
+                              const SizedBox(
+                                  height: 10), // Kartlar arasında boşluk
                             ],
                           );
                         },
@@ -143,6 +126,41 @@ class HomeViewScreen extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+
+  Row _helloUserText() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        const Row(
+          children: [
+            CircleAvatar(
+              backgroundColor: Colors.white,
+              radius: 25,
+              child: Icon(
+                UniconsLine.user_circle,
+                size: 30,
+              ),
+            ),
+            SizedBox(width: 10),
+            Text(
+              'Günaydın, User',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
+          ],
+        ),
+        IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              UniconsLine.bell,
+              color: Colors.white,
+              size: 30,
+            )),
+      ],
     );
   }
 }

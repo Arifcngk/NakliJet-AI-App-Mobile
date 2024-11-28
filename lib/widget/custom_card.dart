@@ -2,7 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:unicons/unicons.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({super.key});
+  final String id;
+
+  final String startPlace;
+  final String finishPlace;
+  final String advertDate;
+  final int advertPrice;
+
+  const CustomCard({
+    super.key,
+    required this.id,
+    required this.startPlace,
+    required this.finishPlace,
+    required this.advertDate,
+    required this.advertPrice,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +36,7 @@ class CustomCard extends StatelessWidget {
               children: [
                 // Sipariş Numarası
                 Text(
-                  '39479',
+                  id,
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -42,13 +56,14 @@ class CustomCard extends StatelessWidget {
                         color: Colors.pink.shade50,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Row(
+                      child: Row(
                         children: [
-                          Icon(UniconsLine.calendar_alt, color: Colors.purple),
-                          SizedBox(width: 5),
+                          const Icon(UniconsLine.calendar_alt,
+                              color: Colors.purple),
+                          const SizedBox(width: 5),
                           Text(
-                            '21 Ekim 2024',
-                            style: TextStyle(color: Colors.purple),
+                            advertDate,
+                            style: const TextStyle(color: Colors.purple),
                           ),
                         ],
                       ),
@@ -64,11 +79,11 @@ class CustomCard extends StatelessWidget {
                         color: Colors.blue.shade50,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: const Row(
+                      child: Row(
                         children: [
                           Text(
-                            '₺₺₺₺₺ + KDV',
-                            style: TextStyle(
+                            '{$advertPrice} + KDV',
+                            style: const TextStyle(
                               color: Colors.blue,
                               fontWeight: FontWeight.bold,
                             ),
@@ -101,20 +116,20 @@ class CustomCard extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(width: 10),
-                const Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       children: [
                         Text(
-                          'Çıkış',
-                          style: TextStyle(
+                          startPlace,
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.black54,
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Text(
+                        const SizedBox(width: 10),
+                        const Text(
                           'Manisa Yunusemre',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
@@ -123,18 +138,18 @@ class CustomCard extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    const SizedBox(height: 12),
                     Row(
                       children: [
                         Text(
-                          'Varış',
-                          style: TextStyle(
+                          finishPlace,
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.black54,
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Text(
+                        const SizedBox(width: 10),
+                        const Text(
                           'İstanbul Anadolu, Sancaktepe',
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
