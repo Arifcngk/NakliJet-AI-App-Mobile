@@ -121,17 +121,17 @@ class CustomCard extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Text(
-                          startPlace,
-                          style: const TextStyle(
+                        const Text(
+                          "Çıkış Noktası",
+                          style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.black54,
                           ),
                         ),
                         const SizedBox(width: 10),
-                        const Text(
-                          'Manisa Yunusemre',
-                          style: TextStyle(
+                        Text(
+                          startPlace,
+                          style: const TextStyle(
                             fontWeight: FontWeight.w500,
                             color: Colors.black87,
                           ),
@@ -141,17 +141,17 @@ class CustomCard extends StatelessWidget {
                     const SizedBox(height: 12),
                     Row(
                       children: [
-                        Text(
-                          finishPlace,
-                          style: const TextStyle(
+                        const Text(
+                          "Varış Noktası",
+                          style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Colors.black54,
                           ),
                         ),
                         const SizedBox(width: 10),
-                        const Text(
-                          'İstanbul Anadolu, Sancaktepe',
-                          style: TextStyle(
+                        Text(
+                          finishPlace,
+                          style: const TextStyle(
                             fontWeight: FontWeight.w500,
                             color: Colors.black87,
                           ),

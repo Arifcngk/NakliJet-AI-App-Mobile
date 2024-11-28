@@ -34,7 +34,7 @@ class PhoneInputButton extends StatelessWidget {
       ),
       initialCountryCode: 'TR',
       onChanged: (phone) {
-        // print(phone.completeNumber);
+        // Telefon numarası her değiştiğinde yapılacak işlemler
       },
       style: const TextStyle(
         fontSize: 16, // Telefon numarası metni boyutu

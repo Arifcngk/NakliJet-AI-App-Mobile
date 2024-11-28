@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 class RotaJobsWidget extends StatelessWidget {
+  final String startPlace;
+  final String finishPlace;
+
   const RotaJobsWidget({
     super.key,
     required this.context,
+    required this.startPlace,
+    required this.finishPlace,
   });
 
   final BuildContext context;
@@ -22,16 +27,16 @@ class RotaJobsWidget extends StatelessWidget {
             ),
             const SizedBox(width: 5),
             const Text(
-              'Çıkış',
+              "Çıkış Noktası",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black54,
               ),
             ),
             const SizedBox(width: 10),
-            const Text(
-              'Manisa Yunusemre',
-              style: TextStyle(
+            Text(
+              startPlace,
+              style: const TextStyle(
                 fontWeight: FontWeight.w500,
                 color: Colors.black87,
               ),
@@ -39,25 +44,25 @@ class RotaJobsWidget extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 12),
-        const Row(
+        Row(
           children: [
-            Icon(
+            const Icon(
               Icons.circle,
               color: Colors.blue,
               size: 15,
             ),
-            SizedBox(width: 5),
-            Text(
-              'Varış',
+            const SizedBox(width: 5),
+            const Text(
+              "Varış Noktası",
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black54,
               ),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             Text(
-              'İstanbul Anadolu, Sancaktepe',
-              style: TextStyle(
+              finishPlace,
+              style: const TextStyle(
                 fontWeight: FontWeight.w500,
                 color: Colors.black87,
               ),

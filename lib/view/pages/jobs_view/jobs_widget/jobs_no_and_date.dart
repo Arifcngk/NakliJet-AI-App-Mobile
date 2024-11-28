@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class JobsDateAndNo extends StatelessWidget {
+  final String jobNo;
+  final String jobDate;
   const JobsDateAndNo({
     super.key,
     required this.context,
+    required this.jobNo,
+    required this.jobDate,
   });
 
   final BuildContext context;
@@ -20,18 +24,18 @@ class JobsDateAndNo extends StatelessWidget {
           topRight: Radius.circular(30),
         ),
       ),
-      child: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           children: [
             Text(
-              "Yük No : 39213",
-              style: TextStyle(fontSize: 18, color: Colors.white),
+              "Yük No : $jobNo",
+              style: const TextStyle(fontSize: 18, color: Colors.white),
             ),
-            Spacer(),
+            const Spacer(),
             Text(
-              "Tarih : 12.12.2021",
-              style: TextStyle(fontSize: 18, color: Colors.white),
+              "Tarih : $jobDate",
+              style: const TextStyle(fontSize: 18, color: Colors.white),
             ),
           ],
         ),

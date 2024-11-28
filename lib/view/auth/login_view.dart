@@ -12,11 +12,60 @@ class LoginViewSceen extends StatelessWidget {
   Widget build(BuildContext context) {
     final authProvider = Provider.of<PhoneAuthProvider>(context);
     final TextEditingController _phoneController = TextEditingController();
-
-    void onTabLogin() {
+    void onTabLogin() async {
       String enteredPhone = _phoneController.text.trim();
-      authProvider.authenticated(enteredPhone);
 
+      if (_phoneController.text.isEmpty) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(
+              "Lütfen Telefon Numarası Giriniz.",
+              textAlign: TextAlign.center,
+            ),
+            padding: EdgeInsets.all(8),
+          ),
+        );
+        return;
+      }
+
+// Sadece sayılar içerip içermediğini kontrol et
+      final numericOnly = RegExp(r'^[0-9]+$');
+      if (!numericOnly.hasMatch(_phoneController.text)) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(
+              "Telefon numarası sadece rakamlardan oluşmalıdır.",
+              textAlign: TextAlign.center,
+            ),
+            padding: EdgeInsets.all(8),
+          ),
+        );
+        return;
+      }
+
+// Uzunluk ve Türk numarası kontrolü
+      if (_phoneController.text.length != 10 ||
+          !_phoneController.text.startsWith('5')) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            backgroundColor: Colors.red,
+            content: Text(
+              "Lütfen geçerli bir  telefon numarası giriniz.",
+              textAlign: TextAlign.center,
+            ),
+            padding: EdgeInsets.all(8),
+          ),
+        );
+        return;
+      }
+
+      // Telefon numarasını doğrula
+      authProvider.authenticated(
+          enteredPhone); // Eğer asenkron değilse 'await' kaldırılabilir.
+
+      // Doğrulama sonucuna göre yönlendirme yap
       if (authProvider.isAuthenticated) {
         Navigator.pushReplacement(
           context,

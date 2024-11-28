@@ -1,7 +1,7 @@
 class AdvertisementInformationModel {
   final String id;
   final String customerName;
-  final String customerLitle;
+  final String customerTitle;
   final String startPlace;
   final String finishPlace;
   final String advertDate;
@@ -15,7 +15,7 @@ class AdvertisementInformationModel {
     required this.advertDate,
     required this.advertPrice,
     required this.advertMust,
-    required this.customerLitle,
+    required this.customerTitle,
     required this.customerName,
   });
 }

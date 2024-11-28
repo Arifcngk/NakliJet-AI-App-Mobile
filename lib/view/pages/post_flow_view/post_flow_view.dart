@@ -49,7 +49,15 @@ class PostFlowViewScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => JobsDetailsScreen(),
+                          builder: (context) => JobsDetailsScreen(
+                              id: ad.id,
+                              customerName: ad.customerName,
+                              customerTitle: ad.customerTitle,
+                              startPlace: ad.startPlace,
+                              finishPlace: ad.finishPlace,
+                              advertDate: ad.advertDate,
+                              advertPrice: ad.advertPrice,
+                              advertMust: ad.advertMust),
                         ));
                   },
                   child: CustomCard(

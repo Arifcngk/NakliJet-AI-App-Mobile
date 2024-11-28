@@ -40,6 +40,7 @@ dependencies:
   unicons: ^3.0.0
   wolt_modal_sheet: ^0.9.3
   provider: ^6.1.2
+  shared_preferences: ^2.3.3
 
 dev_dependencies:
   flutter_test:

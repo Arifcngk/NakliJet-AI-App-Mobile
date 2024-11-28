@@ -5,7 +5,24 @@ import 'package:naklijet_demo/view/pages/jobs_view/jobs_widget/rota_jobs.dart';
 import 'package:unicons/unicons.dart';
 
 class JobsDetailsScreen extends StatelessWidget {
-  const JobsDetailsScreen({super.key});
+  final String id;
+  final String customerName;
+  final String customerTitle;
+  final String startPlace;
+  final String finishPlace;
+  final String advertDate;
+  final int advertPrice;
+  final List<String> advertMust;
+  const JobsDetailsScreen(
+      {super.key,
+      required this.id,
+      required this.customerName,
+      required this.customerTitle,
+      required this.startPlace,
+      required this.finishPlace,
+      required this.advertDate,
+      required this.advertPrice,
+      required this.advertMust});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +58,12 @@ class JobsDetailsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    JobsDateAndNo(context: context),
+                    // ilan tarihi ve sefer no
+                    JobsDateAndNo(
+                      context: context,
+                      jobDate: advertDate,
+                      jobNo: id,
+                    ),
                     const SizedBox(height: 20),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -57,11 +79,21 @@ class JobsDetailsScreen extends StatelessWidget {
                             ),
                           ),
                           const SizedBox(height: 10),
-                          RotaJobsWidget(context: context),
+                          // rotasyon bilgileri çıkış-varış
+                          RotaJobsWidget(
+                            context: context,
+                            finishPlace: finishPlace,
+                            startPlace: startPlace,
+                          ),
                           const SizedBox(height: 20),
+                          // taşıma gereksinimleri
                           _jobs_info_rounded_Card(context),
                           const SizedBox(height: 20),
-                          const ContactCardWidget(),
+                          // iletişim bilgileri
+                          ContactCardWidget(
+                            customerName: customerName,
+                            customerTitle: customerTitle,
+                          ),
                           const SizedBox(height: 20),
                           Card(
                             color: Colors.white,
@@ -94,8 +126,8 @@ class JobsDetailsScreen extends StatelessWidget {
                                           ),
                                         ),
                                         const SizedBox(width: 10),
-                                        const Text("₺₺₺₺₺₺₺ +KDV",
-                                            style: TextStyle(
+                                        Text("${advertPrice}₺ +KDV",
+                                            style: const TextStyle(
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.black,
@@ -180,16 +212,16 @@ class JobsDetailsScreen extends StatelessWidget {
               children: [
                 const SizedBox(height: 8),
                 Divider(color: Colors.grey.shade300, thickness: 1),
-                _carryingRequirement(key: " DORSE :", value: " 16.30 Açık"),
+                _carryingRequirement(key: "KASA TİPİ", value: advertMust[0]),
                 const SizedBox(height: 8),
                 Divider(color: Colors.grey.shade300, thickness: 1),
-                _carryingRequirement(key: "TONAJ", value: "20-25 Ton Max"),
+                _carryingRequirement(key: "TONAJ", value: advertMust[1]),
                 const SizedBox(height: 8),
                 Divider(color: Colors.grey.shade300, thickness: 1),
-                _carryingRequirement(key: "ÜRÜN TİPİ", value: "Kuru Yük"),
+                _carryingRequirement(key: "ÜRÜN TİPİ", value: advertMust[2]),
                 const SizedBox(height: 8),
                 Divider(color: Colors.grey.shade300, thickness: 1),
-                _carryingRequirement(key: "ARAÇ TİPİ", value: "Tır"),
+                _carryingRequirement(key: "ARAÇ TİPİ", value: advertMust[3]),
               ],
             ),
           ),

@@ -4,8 +4,12 @@ import 'package:naklijet_demo/widget/circle_avatar_widget.dart';
 import 'package:unicons/unicons.dart';
 
 class ContactCardWidget extends StatelessWidget {
+  final String customerName;
+  final String customerTitle;
   const ContactCardWidget({
     super.key,
+    required this.customerName,
+    required this.customerTitle,
   });
 
   @override
@@ -15,15 +19,15 @@ class ContactCardWidget extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height: MediaQuery.of(context).size.height * 0.08,
-        child: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Row(
             children: [
-              CircleAvatarWidget(
+              const CircleAvatarWidget(
                 icon: UniconsLine.user_circle,
                 radius: 26,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Column(
@@ -31,23 +35,23 @@ class ContactCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Arif Can",
-                    style: TextStyle(
+                    customerName,
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                   Text(
-                    "Oparasyon Demo",
-                    style: TextStyle(
+                    customerTitle,
+                    style: const TextStyle(
                       fontSize: 12,
                       color: Colors.black54,
                     ),
                   ),
                 ],
               ),
-              Spacer(),
-              Row(
+              const Spacer(),
+              const Row(
                 children: [
                   JobsContactButton(
                       icon: UniconsLine.whatsapp, color: Colors.green),
