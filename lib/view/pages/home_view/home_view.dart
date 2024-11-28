@@ -10,15 +10,13 @@ class HomeViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final advertisements =
-        Provider.of<AdvertisementInformationProvider>(context).advertisements;
     return Scaffold(
       body: Stack(
         children: [
-          // Üst Kısım (60% boyut)
+          // Üst kısmı oluşturuyoruz (Ekranın %60'ı)
           FractionallySizedBox(
-            heightFactor: 0.6, // Ekranın %60'ı
-            widthFactor: 1.0, // Ekranın tamamı
+            heightFactor: 0.6,
+            widthFactor: 1.0,
             alignment: Alignment.topCenter,
             child: Container(
               color: const Color(0xFF0c72fb),
@@ -38,46 +36,31 @@ class HomeViewScreen extends StatelessWidget {
                           fontSize: 20,
                           fontWeight: FontWeight.w300),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.1,
                       width: double.infinity,
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color:
-                              Colors.transparent, // Arka planı transparan yap
-                          border: Border.all(
-                            color: Colors.white, // Kenar rengi beyaz
-                            width: 1.0,
-                          ),
-                          borderRadius:
-                              BorderRadius.circular(5), // Kenarları yuvarlat
-                        ),
-                        child: const infoDocumant(),
-                      ),
+                      child: const infoDocumant(),
                     ),
                   ],
                 ),
-              ), // Üst kısmın arka plan rengi
+              ),
             ),
           ),
-          // Alt Kısım (40% boyut)
+          // Alt kısmı oluşturuyoruz (Ekranın %40'ı)
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height:
-                  MediaQuery.of(context).size.height * 0.55, // Ekranın %55'i
+              height: MediaQuery.of(context).size.height * 0.55,
               decoration: const BoxDecoration(
-                color: Color(0xFFEEEDEB), // Alt kısmın arka plan rengi
+                color: Color(0xFFEEEDEB),
                 borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.0), // Üst sol köşe oval
-                  topRight: Radius.circular(30.0), // Üst sağ köşe oval
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(16.0), // İçerik boşlukları
+                padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -95,35 +78,38 @@ class HomeViewScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                        height:
-                            20), // "Önerilenler" başlığı ile kartlar arasında boşluk
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: advertisements.length, // 6 kart oluştur
-                        itemBuilder: (context, index) {
-                          final ad = advertisements[index];
-                          return Column(
-                            children: [
-                              CustomCard(
-                                advertDate: ad.advertDate,
-                                advertPrice: ad.advertPrice,
-                                finishPlace: ad.finishPlace,
-                                id: ad.id,
-                                startPlace: ad.startPlace,
-                              ), // Her bir kart
-                              const SizedBox(
-                                  height: 10), // Kartlar arasında boşluk
-                            ],
-                          );
-                        },
-                      ),
+                    const SizedBox(height: 20),
+                    // Consumer ile veri değişimini dinliyoruz
+                    Consumer<AdvertisementInformationProvider>(
+                      builder: (context, provider, child) {
+                        final advertisements = provider.advertisements;
+                        return Expanded(
+                          child: ListView.builder(
+                            itemCount: advertisements.length,
+                            itemBuilder: (context, index) {
+                              final ad = advertisements[index];
+                              return Column(
+                                children: [
+                                  CustomCard(
+                                    advertDate: ad.advertDate,
+                                    advertPrice: ad.advertPrice,
+                                    finishPlace: ad.finishPlace,
+                                    id: ad.id,
+                                    startPlace: ad.startPlace,
+                                  ),
+                                  const SizedBox(height: 10),
+                                ],
+                              );
+                            },
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

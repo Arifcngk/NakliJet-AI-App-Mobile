@@ -82,7 +82,7 @@ class CustomCard extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            '{$advertPrice} + KDV',
+                            '$advertPrice + KDV',
                             style: const TextStyle(
                               color: Colors.blue,
                               fontWeight: FontWeight.bold,

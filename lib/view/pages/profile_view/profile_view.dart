@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:naklijet_demo/core/utils/shared_preferences_helper.dart';
+import 'package:naklijet_demo/view/auth/login_view.dart';
 import 'package:naklijet_demo/view/pages/profile_view/setting/profile_settings_view.dart';
 import 'package:naklijet_demo/widget/circle_avatar_widget.dart';
 import 'package:unicons/unicons.dart';
@@ -8,6 +10,15 @@ class ProfileViewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> logoutUser(BuildContext context) async {
+      await SharedPreferencesHelper.setLoginStatus(false);
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginViewSceen()),
+      );
+    }
+
     return Scaffold(
       backgroundColor: const Color(0xFFEEEDEB),
       appBar: _buildAppBar(),
@@ -87,6 +98,9 @@ class ProfileViewScreen extends StatelessWidget {
                     title: 'Çıkış Yap',
                     iconColor: Colors.red,
                     titleColor: Colors.red,
+                    ontap: () {
+                      logoutUser(context);
+                    },
                   ),
                 ],
               ),
@@ -127,9 +141,10 @@ class ProfileViewScreen extends StatelessWidget {
     required String title,
     Color? iconColor,
     Color? titleColor,
+    VoidCallback? ontap,
   }) {
     return ListTile(
-      onTap: () {},
+      onTap: ontap,
       leading: Icon(icon, color: iconColor ?? Colors.black),
       title: Text(
         title,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:naklijet_demo/view/auth/auth_profile_info.dart';
 
 class customBtnWidget extends StatelessWidget {
    customBtnWidget({

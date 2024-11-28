@@ -4,7 +4,7 @@ import 'package:naklijet_demo/models/advertisement_info_model.dart';
 class AdvertisementInformationProvider extends ChangeNotifier {
   final List<AdvertisementInformationModel> _advertisements = [
     AdvertisementInformationModel(
-        id: "3421",
+        id: "34721",
         startPlace: "Bolu",
         finishPlace: "Kocaeli",
         advertDate: "28.11.2024",
@@ -12,6 +12,7 @@ class AdvertisementInformationProvider extends ChangeNotifier {
         advertMust: ["16.30 Açık", "20", "Kuru Yük", "Tır"],
         customerTitle: "Operasyon Müdürü",
         customerName: "Arif Can Gök"),
+        
     AdvertisementInformationModel(
         id: "1245",
         startPlace: "Bursa",

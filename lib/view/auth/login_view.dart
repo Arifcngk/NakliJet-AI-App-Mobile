@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:naklijet_demo/core/package/phoneField_widget.dart';
 import 'package:naklijet_demo/providers/phone_auth_provider.dart';
-import 'package:naklijet_demo/view/app_view.dart';
 import 'package:naklijet_demo/view/auth/auth_profile_info.dart';
+import 'package:naklijet_demo/view/auth/verification_code_view.dart';
 import 'package:provider/provider.dart';
 
 class LoginViewSceen extends StatelessWidget {
@@ -11,11 +11,11 @@ class LoginViewSceen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authProvider = Provider.of<PhoneAuthProvider>(context);
-    final TextEditingController _phoneController = TextEditingController();
+    final TextEditingController phoneController = TextEditingController();
     void onTabLogin() async {
-      String enteredPhone = _phoneController.text.trim();
+      String enteredPhone = phoneController.text.trim();
 
-      if (_phoneController.text.isEmpty) {
+      if (phoneController.text.isEmpty) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             backgroundColor: Colors.red,
@@ -31,7 +31,7 @@ class LoginViewSceen extends StatelessWidget {
 
 // Sadece sayılar içerip içermediğini kontrol et
       final numericOnly = RegExp(r'^[0-9]+$');
-      if (!numericOnly.hasMatch(_phoneController.text)) {
+      if (!numericOnly.hasMatch(phoneController.text)) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             backgroundColor: Colors.red,
@@ -46,8 +46,8 @@ class LoginViewSceen extends StatelessWidget {
       }
 
 // Uzunluk ve Türk numarası kontrolü
-      if (_phoneController.text.length != 10 ||
-          !_phoneController.text.startsWith('5')) {
+      if (phoneController.text.length != 10 ||
+          !phoneController.text.startsWith('5')) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             backgroundColor: Colors.red,
@@ -67,10 +67,12 @@ class LoginViewSceen extends StatelessWidget {
 
       // Doğrulama sonucuna göre yönlendirme yap
       if (authProvider.isAuthenticated) {
+       
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const AppViewScreen(),
+            builder: (context) => const VerificationCodeView(),
+            // appviewscreen ile değiştir unutma 
           ),
         );
       } else {
@@ -112,7 +114,7 @@ class LoginViewSceen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             // telefon numarası girme alanı
-            PhoneInputButton(phoneController: _phoneController),
+            PhoneInputButton(phoneController: phoneController),
             const SizedBox(height: 20),
             // ilerleme alanı
             SizedBox(

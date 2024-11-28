@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:naklijet_demo/view/app_view.dart';
-import 'package:naklijet_demo/view/pages/home_view/home_view.dart';
+import 'package:naklijet_demo/view/auth/verification_code_view.dart';
 import 'package:naklijet_demo/widget/custom_btn_widget.dart';
 import 'package:naklijet_demo/widget/custom_textfield.dart';
 import 'package:unicons/unicons.dart';
@@ -68,7 +67,8 @@ class AuthProfileInfo extends StatelessWidget {
                           customBtnWidget(
                             onPressed: () {
                               Navigator.of(context).push(MaterialPageRoute(
-                                builder: (context) => const AppViewScreen(),
+                                builder: (context) =>
+                                    const VerificationCodeView(),
                               ));
                             },
                           ),
