@@ -1,16 +1,15 @@
-# naklijet_demo
 
-A new Flutter project.
+Here’s the updated version:
 
-## Getting Started
+Naklijet
+Naklijet is an advanced cargo transportation system developed for TÜBİTAK. Its main purpose is to collect transportation listings shared on popular social media platforms such as WhatsApp and Telegram and present them seamlessly to users through the application.
 
-This project is a starting point for a Flutter application.
+Key Features:
+AI-Powered Recommendations: Provides personalized suggestions to users.
+Advanced Search: Uses cutting-edge technologies like ElasticSearch for fast and efficient data retrieval.
+Multi-Platform Support: Accessible on various platforms for greater flexibility.
+Cloud-Based Infrastructure: Ensures scalability, reliability, and high performance.
+Naklijet combines modern technology and user-centric design to deliver a smooth and efficient transportation solution.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Status
+This project is currently under development. It is being developed in collaboration with Mehmet Sezer
