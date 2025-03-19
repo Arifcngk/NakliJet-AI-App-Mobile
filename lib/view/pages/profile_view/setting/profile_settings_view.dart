@@ -47,7 +47,7 @@ class ProfileSettingsView extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),
               ),
-              SizedBox(height: 15),
+            const  SizedBox(height: 15),
             ],
           ),
         ),

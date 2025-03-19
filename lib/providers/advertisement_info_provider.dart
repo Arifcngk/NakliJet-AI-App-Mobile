@@ -10,8 +10,8 @@ class AdvertisementInformationProvider extends ChangeNotifier {
         advertDate: "28.11.2024",
         advertPrice: 1200,
         advertMust: ["16.30 Açık", "20", "Kuru Yük", "Tır"],
-        customerTitle: "Operasyon Müdürü",
-        customerName: "Arif Can Gök"),
+        customerTitle: "Operasyon Şefi",
+        customerName: "Ahmet Demiroğlu"),
         
     AdvertisementInformationModel(
         id: "1245",
